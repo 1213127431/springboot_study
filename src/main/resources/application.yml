@@ -4,6 +4,10 @@ spring:
     username: root
     password: root
     url: jdbc:mysql://localhost:3306/dev
+    type: com.alibaba.druid.pool.DruidDataSource
+
 
 mybatis:
   mapper-locations: com/tj/dal/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
