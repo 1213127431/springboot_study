@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RunLogAspect {
 
-    @Pointcut("execution(* com.tj.controller..*.*(..))")
+    @Pointcut("execution(* com.tj.controller..*.*(..))||execution(* com.tj.dal.repo..*.*(..))")
     private void pointcut() {
     }
 
