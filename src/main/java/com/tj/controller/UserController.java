@@ -2,6 +2,8 @@ package com.tj.controller;
 
 import com.tj.dal.entity.User;
 import com.tj.dal.repo.UserMapper;
+import com.tj.log.ParamNoPrint;
+import com.tj.log.ParamPrint;
 import com.tj.model.response.Response;
 import com.tj.thread.ThreadPoolManager;
 import lombok.extern.slf4j.Slf4j;
@@ -50,11 +52,15 @@ public class UserController {
         for (int i = 0; i < 10000; i++) {
             int finalI = i;
             threadPoolManager.getExecutorService().submit(() -> {
+//                try {
                 User user = new User();
-                user.setName("唐杰" + finalI);
+                user.setName("唐杰11111111111111111111111111111111111111111111111111111111111111111111111" + finalI);
                 user.setAge(finalI);
                 user.setAddress("地址" + finalI);
                 userMapper.insert(user);
+//                } catch (Exception e) {
+//                    log.error("异常信息:", e);
+//                }
             });
         }
 

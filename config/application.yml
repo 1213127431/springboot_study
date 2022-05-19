@@ -6,10 +6,10 @@ spring:
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
       password: TangJie@12345
-      url: jdbc:mysql://182.61.27.171:3306/test
+      url: jdbc:mysql://192.168.188.100:3306/dev
       initialSize: 5
       minIdle: 5
-      maxActive: 20
+      maxActive: 100
       maxWait: 60000
       timeBetweenEvictionRunsMillis: 60000
       minEvictableIdleTimeMillis: 300000
@@ -23,5 +23,5 @@ spring:
 
 mybatis:
   mapper-locations: com/tj/dal/mapper/*.xml
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
