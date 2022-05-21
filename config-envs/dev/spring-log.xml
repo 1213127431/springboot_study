@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <bean id="paramPrintAspect" class="com.tj.log.ParamPrintAspect"/>
+
+    <!--Spring基于Xml的切面-->
+    <aop:config>
+
+        <!-- 定义切面 order 定义优先级,值越小优先级越大-->
+        <aop:aspect ref="paramPrintAspect" order="100">
+            <!--定义切点函数-->
+            <aop:pointcut id="pointCut" expression=" ( execution(public * com.tj.log..*.*(..))
+            || @annotation(com.tj.log.ParamPrint)
+            || execution(public * com.tj.controller..*.*(..)) )
+            &amp;&amp; !@annotation(com.tj.log.ParamNoPrint) "/>
+            <!--环绕通知-->
+            <aop:around method="printLog" pointcut-ref="pointCut"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
