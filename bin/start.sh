@@ -31,7 +31,7 @@ if [ "$4" = "jacoco" ]; then
 JACOCO_OPTS="-javaagent:$SERVER/lib/jacocoagent.jar=includes=*,output=tcpserver,address=0.0.0.0,port=10086"
 fi
 
-CONFIG_FILES=" -Dspring.config.location=$CONF_DIR/application.properties "
+CONFIG_FILES=" -Dspring.config.location=$CONF_DIR/application.yml "
 
 start(){
 
@@ -62,7 +62,7 @@ start(){
     echo "start project begin..." >> $LOG
     cd $SERVER
     classPath="."
-    nohup java $JAVA_OPTS $DEBUG_OPTS $JACOCO_OPTS $CONFIG_FILES -jar $SERVER/$JAR >/dev/null 2>&1 &
+    nohup java $JAVA_OPTS $DEBUG_OPTS $JACOCO_OPTS $CONFIG_FILES -jar $SERVER/$JAR >$LOG 2>&1 &
     echo $! > $SERVER/server.pid
     echo "start project success..." >> $LOG
     echo "start project success,PID:$1,LOG-PATH:$LOG"
