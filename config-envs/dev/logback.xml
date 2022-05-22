@@ -1,24 +1,26 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{56} - %msg%n</pattern>
         </encoder>
     </appender>
+    <property name="LOG_HOME" value="/app/appadmin/logs/springboot_study"/>
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>log/info.log</file>
+        <file>${LOG_HOME}/logs/info.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- Daily rollover -->
-            <fileNamePattern>log/generator.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
-            <!-- Keep 7 days' worth of history -->
-            <maxHistory>7</maxHistory>
+            <fileNamePattern>${LOG_HOME}/logs/info.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+            <!-- Keep 20 days' worth of history -->
+            <maxHistory>20</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{56} - %msg%n</pattern>
+            <charset>UTF-8</charset>
         </encoder>
     </appender>
     <!-- Configure so that it outputs to both console and log file -->
     <root level="INFO">
-        <appender-ref ref="FILE" />
+        <appender-ref ref="FILE"/>
         <appender-ref ref="STDOUT"/>
     </root>
 

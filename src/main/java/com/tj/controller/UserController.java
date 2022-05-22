@@ -42,7 +42,11 @@ public class UserController {
 
     @PostMapping(value = "/addUser")
     public Response<Object> addUser(@RequestBody User user) {
-        userMapper.insert(user);
+        log.info("222");
+        threadPoolManager.getExecutorService().submit(() -> {
+            log.info("222");
+            userMapper.insert(user);
+        });
         return Response.buildSuccessResponse(null);
     }
 

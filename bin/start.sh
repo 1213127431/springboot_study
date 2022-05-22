@@ -62,7 +62,7 @@ start(){
     echo "start project begin..." >> $LOG
     cd $SERVER
     classPath="."
-    nohup java $JAVA_OPTS $DEBUG_OPTS $JACOCO_OPTS $CONFIG_FILES -jar $SERVER/$JAR >$LOG 2>&1 &
+    nohup java $JAVA_OPTS $DEBUG_OPTS $JACOCO_OPTS $CONFIG_FILES -jar $SERVER/$JAR >/dev/null 2>&1 &
     echo $! > $SERVER/server.pid
     echo "start project success..." >> $LOG
     echo "start project success,PID:$1,LOG-PATH:$LOG"
