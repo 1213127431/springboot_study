@@ -54,7 +54,7 @@ public class UserController {
             threadPoolManager.getExecutorService().submit(() -> {
 //                try {
                 User user = new User();
-                user.setName("唐杰11111111111111111111111111111111111111111111111111111111111111111111111" + finalI);
+                user.setName("金蓉" + finalI);
                 user.setAge(finalI);
                 user.setAddress("地址" + finalI);
                 userMapper.insert(user);
