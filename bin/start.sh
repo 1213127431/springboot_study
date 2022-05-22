@@ -3,14 +3,14 @@
 #启动：sh start.sh start {profileName,如:pro,dev,fz},停止：sh start.sh stop
 
 #部署目录
-#SERVER=/app/appadmin/springboot-study
+#SERVER=/app/appadmin/springboot_study
 #通过相对路径获取部署目录
 cd ..
 SERVER=`pwd`
 #日志目录
-LOG_SERVER=/app/appadmin/logs/springboot-study/logs
+LOG_SERVER=/app/appadmin/logs/springboot_study/logs
 #jar包的名称
-SERVER_NAME=springboot-study
+SERVER_NAME=springboot_study
 CONF_DIR=$SERVER/config
 ALLCONF_DIR=$SERVER/config-envs
 
