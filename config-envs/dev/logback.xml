@@ -1,7 +1,7 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{56} - %msg%n</pattern>
+            <pattern>%date [%thread] %-5level %logger{56} - %msg%n</pattern>
         </encoder>
     </appender>
     <property name="LOG_HOME" value="/app/appadmin/logs/springboot_study"/>
@@ -14,7 +14,7 @@
             <maxHistory>20</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{56} - %msg%n</pattern>
+            <pattern>%date [%thread] %-5level %logger{56} - %msg%n</pattern>
             <charset>UTF-8</charset>
         </encoder>
     </appender>
