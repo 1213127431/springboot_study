@@ -1,7 +1,6 @@
 spring:
   profiles:
-    active: dev
-    include: biz
+    include: dev,biz
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
